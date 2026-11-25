@@ -1,0 +1,384 @@
+:root {
+  --bg-wall: #0c1311;
+  --terrazzo: #141f1c;
+  --his-panel: #192622;
+  --paper-chart: #e7e2d3;
+  --ink: #181c1a;
+  --phosphor: #84d9a0;
+  --amber: #e6b85c;
+  --blood: #c93030;
+  --border: #2c423b;
+  --mono: 'JetBrains Mono', 'Consolas', 'SimSun', monospace;
+  --sans: 'Noto Sans SC', 'SimSun', sans-serif;
+  --serif: 'Noto Serif SC', 'SimSun', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-wall);
+  color: #d2dfd9;
+  font-family: var(--sans);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+body.purified-universe {
+  --bg-wall: #101920;
+  --terrazzo: #16242e;
+  --phosphor: #7cc6fe;
+}
+
+/* 1998 CRT Scanlines & Phosphor Flicker */
+#crt-scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 90;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.34) 3px
+    );
+  opacity: 0.65;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* Top 1998 Hospital Intranet Status Bar + Cross-Site Contamination Sensor! */
+#his-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  background: #080e0c;
+  border-bottom: 2px solid var(--border);
+  padding: 10px 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.his-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.universe-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.node-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  background: #0f1815;
+  color: #9cb5ab;
+  text-decoration: none;
+  font-size: 0.74rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.node-pill:hover {
+  border-color: var(--phosphor);
+  color: #fff;
+}
+
+.node-pill.infected {
+  border-color: var(--blood);
+  background: rgba(185, 32, 32, 0.2);
+  color: #ff9494;
+}
+
+.node-pill.purified {
+  border-color: #56b4e9;
+  color: #a8dcff;
+}
+
+/* Boot HIS Login Gate */
+#his-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(5, 9, 8, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#his-gate.hidden {
+  display: none;
+}
+
+.win98-dialog {
+  max-width: 540px;
+  width: 100%;
+  background: #131e1b;
+  border: 2px solid #486b60;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.9);
+}
+
+.win98-titlebar {
+  background: linear-gradient(90deg, #173f35, #0d241e);
+  color: #e6f2ee;
+  padding: 8px 14px;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.win98-body {
+  padding: 26px;
+}
+
+.his-btn {
+  padding: 11px 18px;
+  background: #1f4e41;
+  color: #e9f5f1;
+  border: 1px solid #4d8a78;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.his-btn:hover {
+  background: #296655;
+}
+
+.his-btn.danger {
+  background: #7a1c1c;
+  border-color: #d64545;
+  color: #fff;
+}
+
+.his-btn.secondary {
+  background: transparent;
+  border-color: #3e5950;
+  color: #9cb5ab;
+}
+
+/* Sections */
+section {
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.sec-tag {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--phosphor);
+  margin-bottom: 8px;
+  display: block;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.85rem, 3.4vw, 2.55rem);
+  color: #eef5f2;
+  margin-bottom: 14px;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  color: #eef5f2;
+  margin-bottom: 10px;
+}
+
+/* Cross-Site Conspiracy Timeline Banner */
+.conspiracy-chain {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.chain-card {
+  background: var(--terrazzo);
+  border: 1px solid var(--border);
+  padding: 18px;
+  font-size: 0.86rem;
+}
+
+.chain-year {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--amber);
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+
+/* Module A: Ward 4 Interactive Floorplan & Iron Door Observation Slit */
+.ward-workbench {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 26px;
+  margin-top: 24px;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.room-cell {
+  background: var(--his-panel);
+  border: 1px solid var(--border);
+  padding: 16px;
+  text-align: left;
+  color: #cfe0da;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.room-cell.active,
+.room-cell:hover {
+  border-color: var(--phosphor);
+  background: #213630;
+}
+
+.room-cell.crit {
+  border-color: rgba(210, 55, 55, 0.65);
+}
+
+.peep-panel {
+  background: #080c0b;
+  border: 2px solid #354c44;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#ward-peep-canvas {
+  width: 100%;
+  height: 220px;
+  display: block;
+  background: #040605;
+  border: 3px solid #222c28;
+}
+
+.chart-sheet {
+  background: var(--paper-chart);
+  color: var(--ink);
+  padding: 18px 20px;
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  border-left: 4px solid #8c2323;
+  line-height: 1.75;
+}
+
+/* Module B: 1998 Open-Reel Tape Analyzer & Bamboo X-Ray */
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  margin-top: 24px;
+}
+
+.lab-box {
+  background: var(--terrazzo);
+  border: 1px solid var(--border);
+  padding: 22px;
+}
+
+#tape-canvas,
+#xray-canvas {
+  width: 100%;
+  height: 210px;
+  display: block;
+  background: #060908;
+  margin-bottom: 14px;
+  border: 1px solid #2f463f;
+}
+
+/* Module C: Grand Trilogy Demagnetizer Vault */
+.vault-box {
+  background: #0a100e;
+  border: 2px solid #9e2a2b;
+  padding: 30px;
+  margin-top: 24px;
+}
+
+.key-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.his-input {
+  width: 100%;
+  padding: 11px 12px;
+  background: #040706;
+  border: 1px solid #45665b;
+  color: var(--phosphor);
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  margin-top: 6px;
+}
+
+/* Climax Overlay */
+#ward-climax {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: #030404;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#ward-climax.active {
+  display: flex;
+}
+
+#ward-climax-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.climax-modal {
+  position: relative;
+  z-index: 5;
+  max-width: 620px;
+  background: rgba(8, 13, 11, 0.95);
+  border: 2px solid var(--phosphor);
+  padding: 32px;
+  box-shadow: 0 0 90px rgba(0, 0, 0, 0.98);
+}
+
+@media (max-width: 860px) {
+  .conspiracy-chain,
+  .ward-workbench,
+  .lab-grid,
+  .key-inputs {
+    grid-template-columns: 1fr;
+  }
+}
